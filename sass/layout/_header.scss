@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    height: 7rem;
+
+    justify-content: space-between;
+    align-items: center;
+    
+    font-size: 1.4rem;
+
+    background-color: #fff;
+    border-bottom: var(--line);
+    
+    @include respond-to('xs') {
+        height: 11rem;
+
+        align-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}

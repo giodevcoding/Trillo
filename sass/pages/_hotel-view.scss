@@ -1,0 +1,334 @@
+.hotel-view {
+    flex: 1;
+
+    background-color: #fff;
+}
+
+.gallery {
+    display: flex;
+
+    &__photo {
+        display: block;
+        width: 100%;
+    }
+}
+
+.overview {
+    display: flex;
+    
+    align-items: center;
+    
+    border-bottom: var(--line);
+    
+    @include respond-to('xs'){
+        & > * {
+            flex: 1;
+        }
+    }
+
+    &__heading {
+        padding: 1.5rem 3rem;
+
+        font-size: 2.25rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        
+        @include respond-to(small) {
+            padding: 1.25rem 2rem;
+
+            font-size: 1.8rem;
+        }
+        
+        @include respond-to('xs') {
+            padding-right: .25rem;
+        }
+    }
+
+    &__stars {
+        display: flex;
+        margin-right: auto;
+        
+        align-items: center;
+        
+        @include respond-to('xs') {
+            margin-right: 0;
+        }
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+
+        fill: var(--color-primary);
+
+        &--location {
+            margin-right: .5rem;
+            
+            @include respond-to('xs') {
+                margin-left: .5rem;
+            }
+        }
+
+    }
+
+    &__location {
+        display: flex;
+
+        align-items: center;
+
+        font-size: 1.2rem;
+    }
+
+    &__rating {
+        display: flex;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        
+        align-self: stretch;
+        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        color: #fff;
+
+        background-color: var(--color-primary);
+
+        @include respond-to(small) {
+            margin-left: 1rem;
+            padding: 0 1.5rem;
+        }
+    }
+
+    &__rating-average {
+        margin-bottom: -3px;
+
+        font-size: 2.25rem;
+        font-weight: 300;
+
+        @include respond-to(small) {
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+    }
+
+    &__rating-count {
+        font-size: .8rem;
+        text-transform: uppercase;
+        text-align: center;
+
+        @include respond-to(large) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.detail {
+    display: flex;
+    padding: 4.5rem;
+
+    font-size: 1.4rem;
+    
+    background-color: var(--color-grey-light-1);
+    
+    border-bottom: var(--line);
+
+    @include respond-to(medium) {
+        padding: 3rem;
+    }
+    
+    @include respond-to(small) {
+        flex-direction: column;
+    }
+}
+
+.description {
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    padding: 3rem;
+    
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem var(--shadow-super-light);
+
+    @include respond-to(medium) {
+        margin-right: 2rem;
+        padding: 2rem;
+    }
+    @include respond-to(small) {
+        margin-right: 0rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.paragraph:not(:last-of-type){
+    margin-bottom: 2rem;
+}
+
+.list {
+    display: flex;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    
+    flex-wrap: wrap;
+
+    border-top: var(--line);
+    border-bottom: var(--line);
+    list-style: none;
+    
+    &__item {
+        margin-bottom: .7rem;
+        flex: 0 0 50%;
+        
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: .7rem;
+
+            // Older browsers
+            background-image: url(../img/chevron-thin-right.svg);
+            background-size: cover;
+            
+            // Newer browsers
+            @supports (mask-image: url()) {
+                background-image: none;
+                background-color: var(--color-primary);
+                mask-image: url(../img/chevron-thin-right.svg);
+                mask-size: cover;
+            }
+        }
+    } 
+}
+
+.recommend {
+    display: flex;
+    color: var(--color-grey-dark-3);
+    font-size: 1.3rem;
+    
+    align-items: center;
+    
+    &__count {
+        margin-right: auto;
+    }
+    
+    &__friends {
+        display: flex;
+    }
+    
+    &__photo {
+        box-sizing: content-box;
+        width: 4rem;
+        height: 4rem;
+
+        border: 3px solid #fff;
+        border-radius: 50%;
+        
+        &:not(:last-child) {
+            margin-right: -1.5rem;
+        }
+    }
+}
+
+.user-reviews {
+    display: flex;
+    flex: 1;
+    
+    flex-direction: column;
+    align-items: center;
+}
+
+.review {
+    margin-bottom: 3rem;
+    padding: 3rem;
+    
+    position: relative;
+    
+    background-color: white;
+    box-shadow: 0 2rem 5rem var(--shadow-super-light);
+    overflow: hidden;
+
+    @include respond-to(medium) {
+        margin-bottom: 2rem;
+        padding: 2rem;
+    }
+    
+    &::before {
+        content: "\201C";
+        
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        z-index: 1;
+        
+        color: var(--color-grey-light-2);
+        font-family: sans-serif;
+        font-size: 20rem;
+        line-height: 1;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
+        
+        position: relative;
+        z-index: 2;
+    }
+
+    &__user {
+        display: flex;
+        
+        align-items: center;
+    }
+
+    &__photo {
+        width: 4.5rem;
+        height: 4.5rem;
+        margin-right: 1.5rem;
+        
+        border-radius: 50%;
+    }
+
+    &__user-box {
+        margin-right: auto;
+        
+    }
+
+    &__user-name {
+        margin-bottom: .4rem;
+
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__user-date {
+        font-size: 1.1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__user-rating {
+        color: var(--color-primary);
+        font-size: 2.2rem; 
+        font-weight: 300;
+    }
+}
+
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    
+    border-bottom: var(--line);
+    
+    @include respond-to(medium) {
+        padding: 2.5rem 0;
+    }
+    
+    &__book-now {
+        margin-bottom: 2.5rem;
+
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}

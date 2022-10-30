@@ -1,0 +1,30 @@
+$breakpoint-xl: 75em;
+$breakpoint-lg: 68.75em;
+$breakpoint-md: 56.25em;
+$breakpoint-sm: 37.5em;
+$breakpoint-xs: 31.25em;
+
+$breakpoints: (
+    'extra-large': (max-width: $breakpoint-xl),
+    'xl': (max-width: $breakpoint-xl),
+    'large': (max-width: $breakpoint-lg),
+    'lg': (max-width: $breakpoint-lg),
+    'medium': (max-width: $breakpoint-md),
+    'md': (max-width: $breakpoint-md),
+    'small': (max-width: $breakpoint-sm),
+    'sm': (max-width: $breakpoint-sm),
+    'extra-small': (max-width: $breakpoint-xs),
+    'xs': (max-width: $breakpoint-xs)
+) !default;
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    } @else {
+        @media only screen and (max-width: $breakpoint) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    
+    background-color: var(--color-grey-light-2);
+    box-shadow: 0 2rem 6rem var(--shadow-dark);
+    
+    @include respond-to(xl) {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.content {
+    display: flex;
+
+    @include respond-to('xl') {
+        min-height: 100vh;
+    }
+
+    @include respond-to(medium) {
+        flex-direction: column;
+    }
+}

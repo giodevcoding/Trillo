@@ -1,26 +1,29 @@
 {
-  "name": "natours",
+  "name": "trillo",
   "version": "1.0.0",
-  "description": "Landing page for natours",
+  "description": "Landing page for Trillo",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
-    "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
-    
+    "dev-server": "live-server",
+    "start": "npm-run-all --parallel dev-server watch:sass",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
-    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
-    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+    "concat:css": "concat -o css/style.concat.css css/style.comp.css",
+    "prefix:css": "postcss css/style.concat.css -u autoprefixer -o css/style.prefix.css",
+    "minify:css": "node-sass css/style.prefix.css css/style.min.css --output-style compressed",
+    "cleanup:css": "del css/style.comp.css css/style.concat.css css/style.prefix.css",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css minify:css cleanup:css"
   },
-  "author": "Jonas",
+  "author": "Giovanni Panzetta",
   "license": "ISC",
+  "browserslist": "last 10 versions",
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
+    "autoprefixer": "^10.4.13",
     "concat": "^1.0.3",
-    "node-sass": "^4.5.3",
-    "npm-run-all": "^4.1.1",
-    "postcss-cli": "^4.1.1"
+    "del": "^7.0.0",
+    "del-cli": "^5.0.0",
+    "node-sass": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.0.0"
   }
 }
