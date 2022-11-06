@@ -6,10 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-        <!--[PROD]--
+        <!--[PROD]-->
         <link rel="stylesheet" href="css/style.min.css">
         <!--[/PROD]-->
-        <!--[DEV]-->
+        <!--[DEV]--
         <link rel="stylesheet" href="css/style.css">
         <!--[/DEV]-->
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
@@ -17,6 +17,15 @@
         <title>trillo &mdash; Your all-in-one booking app</title>
     </head>
     <body>
+        <input id="exit-checkbox" type="checkbox" checked>
+        <div class="demo-bar">
+            <p class="demo-bar__text">This is a demo site to showcase building a front-end, with a focus on Flexbox. <a class="demo-bar__link" href="http://www.giodev.net/" target="_blank">Check out other demos back on my main site.</a></p>
+            <label class="demo-bar__exit" for="exit-checkbox">
+                <svg>
+                    <use href="img/sprite.svg#icon-cancel-circle">
+                </svg>
+            </label>
+        </div>
         <div class="container">
             <header class="header">
                 <img class="logo" src="img/logo.png" alt="trillo logo">
